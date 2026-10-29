@@ -1,0 +1,206 @@
+@import 'tailwindcss';
+
+/*
+ * Apna Food design tokens ("Hyperlocal Logistics Engine").
+ * Values come from the original Tailwind config in the HTML designs.
+ * Every token below becomes a utility, e.g. bg-surface-container-low,
+ * text-label-md, p-space-lg, font-display.
+ */
+@theme {
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --text-headline-xl: 32px;
+  --text-headline-xl--line-height: 40px;
+  --text-headline-xl--letter-spacing: -0.02em;
+  --text-headline-xl--font-weight: 700;
+  --text-metric-display: 28px;
+  --text-metric-display--line-height: 36px;
+  --text-metric-display--letter-spacing: -0.02em;
+  --text-metric-display--font-weight: 700;
+  --text-headline-lg: 24px;
+  --text-headline-lg--line-height: 32px;
+  --text-headline-lg--letter-spacing: -0.015em;
+  --text-headline-lg--font-weight: 700;
+  --text-headline-md: 20px;
+  --text-headline-md--line-height: 28px;
+  --text-headline-md--letter-spacing: -0.01em;
+  --text-headline-md--font-weight: 600;
+  --text-headline-sm: 16px;
+  --text-headline-sm--line-height: 24px;
+  --text-headline-sm--font-weight: 600;
+  --text-body-lg: 15px;
+  --text-body-lg--line-height: 22px;
+  --text-body-md: 13px;
+  --text-body-md--line-height: 18px;
+  --text-body-sm: 12px;
+  --text-body-sm--line-height: 16px;
+  --text-label-lg: 13px;
+  --text-label-lg--line-height: 18px;
+  --text-label-lg--font-weight: 600;
+  --text-label-md: 11px;
+  --text-label-md--line-height: 16px;
+  --text-label-md--letter-spacing: 0.02em;
+  --text-label-md--font-weight: 600;
+  --text-label-sm: 10px;
+  --text-label-sm--line-height: 14px;
+  --text-label-sm--letter-spacing: 0.04em;
+  --text-label-sm--font-weight: 700;
+
+  /* Spacing (4pt / 8pt hybrid) */
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 0.75rem;
+  --spacing-space-lg: 1rem;
+  --spacing-space-xl: 1.5rem;
+  --spacing-gutter: 1rem;
+  --spacing-gutter-dense: 0.5rem;
+  --spacing-margin: 1.5rem;
+  --spacing-margin-mobile: 0.75rem;
+  --spacing-sidebar: 264px;
+
+  /* Material 3 colour roles */
+  --color-primary: #ab3500;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #ff6b35;
+  --color-on-primary-container: #5f1900;
+  --color-primary-fixed: #ffdbd0;
+  --color-primary-fixed-dim: #ffb59d;
+  --color-secondary: #ab3500;
+  --color-secondary-container: #fe703c;
+  --color-secondary-fixed: #ffdbd0;
+  --color-secondary-fixed-dim: #ffb59d;
+  --color-tertiary: #bd092e;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #ff676e;
+  --color-tertiary-fixed: #ffdad9;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-surface: #f8f9ff;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-dim: #d0daee;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eff3ff;
+  --color-surface-container: #e6eeff;
+  --color-surface-container-high: #dfe9fc;
+  --color-surface-container-highest: #d9e3f7;
+  --color-surface-variant: #d9e3f7;
+  --color-on-surface: #121c2a;
+  --color-on-surface-variant: #594139;
+  --color-inverse-surface: #273140;
+  --color-inverse-on-surface: #ebf1ff;
+  --color-outline: #8d7168;
+  --color-outline-variant: #e1bfb5;
+
+  /* Semantic: success / warning / lifecycle states */
+  --color-success: #006d37;
+  --color-success-bright: #00b15c;
+  --color-success-container: #6bfe9c66;
+  --color-warning: #7a5900;
+  --color-warning-container: #fff1c2;
+
+  /* shadcn/ui role aliases (so future `shadcn add` components inherit the theme) */
+  --color-background: var(--color-surface);
+  --color-foreground: var(--color-on-surface);
+  --color-card: var(--color-surface-container-lowest);
+  --color-card-foreground: var(--color-on-surface);
+  --color-popover: var(--color-surface-container-lowest);
+  --color-popover-foreground: var(--color-on-surface);
+  --color-muted: var(--color-surface-container-low);
+  --color-muted-foreground: var(--color-on-surface-variant);
+  --color-accent: var(--color-surface-container);
+  --color-accent-foreground: var(--color-on-surface);
+  --color-destructive: var(--color-tertiary);
+  --color-border: var(--color-surface-variant);
+  --color-input: var(--color-surface-variant);
+  --color-ring: var(--color-primary-container);
+
+  --shadow-card: 0 1px 3px rgba(18, 28, 42, 0.04), 0 4px 12px rgba(217, 227, 246, 0.5);
+  --shadow-raised: 0 4px 16px rgba(18, 28, 42, 0.08), 0 1px 4px rgba(18, 28, 42, 0.04);
+  --shadow-overlay: 0 12px 32px rgba(18, 28, 42, 0.12), 0 2px 6px rgba(18, 28, 42, 0.06);
+  --shadow-bar: 0 1px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Brand action gradient — reserved for primary actions and hero KPIs. */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(90deg, #ff6b35 0%, #de2b41 60%, #b9052c 100%);
+}
+
+/* Currency, SLA timers and metrics use tabular digits so columns don't jitter. */
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'cv05' 1;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-surface font-sans text-body-md text-on-surface antialiased;
+    overscroll-behavior-y: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-container;
+  }
+}
+
+/* Drawer (Sheet) motion */
+@keyframes sheet-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes sheet-in-right {
+  from {
+    transform: translateX(100%);
+  }
+}
+@keyframes sheet-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+}
+.sheet-overlay[data-state='open'] {
+  animation: sheet-fade 200ms ease-out;
+}
+.sheet-right[data-state='open'] {
+  animation: sheet-in-right 250ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+.sheet-left[data-state='open'] {
+  animation: sheet-in-left 250ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
